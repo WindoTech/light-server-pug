@@ -1,11 +1,11 @@
 {
-  "name": "light-server",
+  "name": "light-server-pug",
   "version": "2.5.1",
-  "description": "an http server that can watch files, trigger commands and livereload",
+  "description": "an http server that can watch files, trigger commands and livereload, and supports PUG/JADE files",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/txchen/light-server"
+    "url": "https://github.com/BananaAcid/light-server-pug"
   },
   "keywords": [
     "http",
@@ -14,25 +14,29 @@
     "live-reload",
     "watch",
     "execute",
-    "dev"
+    "dev",
+    "pug"
   ],
   "scripts": {
     "lint": "eslint bin/* *.js"
   },
   "bin": {
-    "light-server": "bin/light-server"
+    "light-server-pug": "bin/light-server-pug"
   },
   "dependencies": {
     "commander": "^2.15.1",
     "connect": "^3.6.6",
     "connect-history-api-fallback": "^1.5.0",
     "connect-injector": "^0.4.4",
+    "express": "^4.16.3",
     "gaze": "^1.1.2",
     "http-proxy": "^1.17.0",
+    "localtunnel": "^1.9.0",
     "morgan": "~1.9.0",
     "opener": "^1.4.3",
     "parseurl": "^1.3.2",
-    "serve-static": "~1.13.1",
+    "pug-static": "^1.0.1",
+    "serve-static": "^1.13.2",
     "spdy": "^3.4.7",
     "strip-json-comments": "^2.0.1",
     "ws": "^1.0.1"
@@ -40,9 +44,9 @@
   "author": "Tianxiang Chen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/txchen/light-server/issues"
+    "url": "https://github.com/BananaAcid/light-server-pug/issues"
   },
-  "homepage": "https://github.com/txchen/light-server",
+  "homepage": "https://github.com/BananaAcid/light-server-pug",
   "devDependencies": {
     "eslint": "^4.19.1"
   }

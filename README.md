@@ -1,6 +1,8 @@
-# light-server
+# light-server + PUG support
 
 A lightweight cli static http server and it can watch files, execute commands and trigger livereload.
+
+Added pug support from [pug-static](https://github.com/ryan-schroeder/pug-static/)
 
 ## Why light-server
 

@@ -8,8 +8,10 @@
 'use strict'
 
 var morgan = require('morgan')
-var connect = require('connect')
+//var connect = require('connect')
+var connect = require('express')
 var serveStatic = require('serve-static')
+var serveStaticPug = require('pug-static')
 var injector = require('connect-injector')
 var Gaze = require('gaze').Gaze
 var LR = require('./livereload')
@@ -61,6 +63,7 @@ LightServer.prototype.start = function () {
 
   if (_this.options.serve) {
     app.use(_this.options.servePrefix || '', serveStatic(_this.options.serve, { extensions: ['html'] }))
+    app.use(_this.options.servePrefix || '', serveStaticPug(_this.options.serve))
   }
 
   if (_this.options.proxy) {
@@ -72,6 +75,7 @@ LightServer.prototype.start = function () {
     var history = require('connect-history-api-fallback')
     app.use(history({ index: _this.options.historyindex }))
     app.use(serveStatic(_this.options.serve))
+    app.use(serveStaticPug(_this.options.serve))
   }
 
   var server
