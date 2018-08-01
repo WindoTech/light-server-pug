@@ -62,8 +62,8 @@ LightServer.prototype.start = function () {
   }
 
   if (_this.options.serve) {
-    app.use(_this.options.servePrefix || '', serveStatic(_this.options.serve, { extensions: ['html'] }))
     app.use(_this.options.servePrefix || '', serveStaticPug(_this.options.serve))
+    app.use(_this.options.servePrefix || '', serveStatic(_this.options.serve, { extensions: ['html'] }))
   }
 
   if (_this.options.proxy) {
@@ -74,8 +74,8 @@ LightServer.prototype.start = function () {
   if (_this.options.historyindex) {
     var history = require('connect-history-api-fallback')
     app.use(history({ index: _this.options.historyindex }))
-    app.use(serveStatic(_this.options.serve))
     app.use(serveStaticPug(_this.options.serve))
+    app.use(serveStatic(_this.options.serve))
   }
 
   var server
