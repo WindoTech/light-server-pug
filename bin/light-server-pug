@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * light-server
+ * light-server-pug
  *
  * Serve, watch, exucute commands and live-reload, all in one.
  *
@@ -38,16 +38,16 @@ function main (argv) {
     .on('--help', function () {
       console.log('  Examples:')
       console.log('')
-      console.log('    $ light-server -s . -p 7000')
-      console.log('    $ light-server -s dist --http2 -o')
-      console.log('    $ light-server -s dist --historyindex "/index.html"')
-      console.log('    $ light-server -s . -w "*.js, src/** # npm run build && echo wow!"')
-      console.log('    $ light-server -s . -x http://localhost:8000')
-      console.log('    $ light-server -s . -x http://localhost:8000 --servePrefix /assets')
-      console.log('    $ light-server -s . -b 10.0.0.1')
-      console.log('    $ light-server -x http://localhost:9999 --proxypath "/api" -w "public/**"')
-      console.log('    $ light-server -s static -w "**/*.css # # reloadcss"')
-      console.log('    $ light-server -c .lightserverrc')
+      console.log('    $ light-server-pug -s . -p 7000')
+      console.log('    $ light-server-pug -s dist --http2 -o')
+      console.log('    $ light-server-pug -s dist --historyindex "/index.html"')
+      console.log('    $ light-server-pug -s . -w "*.js, src/** # npm run build && echo wow!"')
+      console.log('    $ light-server-pug -s . -x http://localhost:8000')
+      console.log('    $ light-server-pug -s . -x http://localhost:8000 --servePrefix /assets')
+      console.log('    $ light-server-pug -s . -b 10.0.0.1')
+      console.log('    $ light-server-pug -x http://localhost:9999 --proxypath "/api" -w "public/**"')
+      console.log('    $ light-server-pug -s static -w "**/*.css # # reloadcss"')
+      console.log('    $ light-server-pug -c .lightserverrc')
       console.log('')
       console.log('  Watch expression syntax: "files[,files] # [command to run] # [reload action]"')
       console.log('    3 parts delimited by #')

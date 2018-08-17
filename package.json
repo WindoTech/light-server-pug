@@ -1,7 +1,7 @@
 {
   "name": "light-server-pug",
-  "version": "2.5.2",
-  "description": "an http server that can watch files, trigger commands and livereload, and supports PUG/JADE files",
+  "version": "2.5.3",
+  "description": "An HTTP server that can watch files, trigger commands, do live-reload, and supports PUG/JADE files",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -41,7 +41,10 @@
     "strip-json-comments": "^2.0.1",
     "ws": "^1.0.1"
   },
-  "author": "Tianxiang Chen",
+  "author": "Nabil Redmann <repo@bananaacid.de>",
+  "contributors": [
+    "Tianxiang Chen - original author"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BananaAcid/light-server-pug/issues"

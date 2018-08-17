@@ -8,7 +8,7 @@ Added pug support from [pug-static](https://github.com/ryan-schroeder/pug-static
 ```bash
 npx light-server-pug -s . -p 8000
 ```
--s -> --serve <folder>, -p -> --port <port>
+-s is `--serve <folder>`, -p is `--port <port>` for the local port
 
 ## Why light-server
 
