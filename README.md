@@ -4,6 +4,12 @@ A lightweight cli static http server and it can watch files, execute commands an
 
 Added pug support from [pug-static](https://github.com/ryan-schroeder/pug-static/)
 
+## Quick use (with Node.js installed)
+```bash
+npx light-server-pug -s . -p 8000
+```
+-s -> --serve <folder>, -p -> --port <port>
+
 ## Why light-server
 
 When I was writing some simple static web apps, it was helpful to have some tools to serve static http, to watch files and run command, and to trigger refresh in browser.
@@ -36,7 +42,7 @@ And now my package.json is simpler and cleaner than before :)
 light-server has much smaller footprint, compared to browser-sync, so it is recommended to install in project level, and use it with npm script.
 
 ```bash
-npm install light-server
+npm install light-server-pug
 ```
 
 Of course, you can install it globally, too.
@@ -44,7 +50,7 @@ Of course, you can install it globally, too.
 ## Usage
 
 ```text
-Usage: light-server [options]
+Usage: light-server-pug [options]
 
 Options:
 
@@ -118,7 +124,7 @@ For example, a golang web app exposes REST api via <http://host/api/> and server
 
 ```bash
 $ cd <your static pages dir>
-$ light-server -s . -p 8000 -x http://localhost:9000
+$ light-server-pug -s . -p 8000 -x http://localhost:9000
 ```
 
 Now when you access the static pages/js/css, light-server will return it directly. And if you access something like `http://localhost:8000/v1/myapi`, light-server cannot find the resource, and will proxy the request to upstream - `http://localhost:9000/v1/myapi`, which is the golang app.
@@ -133,7 +139,7 @@ Let's take a look at a real example. [Riot-Hackernews](https://github.com/txchen
 {
   "devDependencies": {
     "browserify": "^8.1.3",
-    "light-server": "^1.0.0",
+    "light-server-pug": "^1.0.0",
     "minifyify": "^6.2.0",
     "riotify": "^0.0.9"
   },
@@ -195,93 +201,4 @@ The values in the command line have higher priority than the ones in the config 
 
 ## Changelog
 
-**2018-05-10** `2.5.1`
-Bug fix: #38.
-
-**2018-03-22** `2.5.0`
-Add no-reload option. Thanks @gkalpak for the PR.
-
-**2018-03-21** `2.4.1`
-Add serve prefix option. Thanks @AurelienRichez for the PR.
-
-**2018-01-31** `2.4.0`
-Use gaze instead of fs.watch, so that we can detect new file added event.
-
-**2018-01-31** `2.3.0`
-Support multiple proxypaths in CLI and config. Upgrade deps.
-
-**2018-01-30** `2.2.2`
-Add a default extension to static files. Thanks @sidewalksalsa for the PR.
-
-**2017-07-28** `2.2.1`
-Open localhost in browser instead of 0.0.0.0, because 0.0.0.0 is not working on win.
-
-**2017-07-26** `2.2.0`
-Add --proxypath. Add history fallback mode, for SPA development.
-
-**2017-07-24** `2.1.0`
-Add -o/--open option, to open browser automatically.
-
-**2017-04-30** `2.0.2`
-Change default bind value to undefined, align with node server.listen.
-
-**2017-01-19** `2.0.0`
-Bump version to 2.0.0, since 1.1.8 introduced breaking changes.
-
-**2017-01-19** `1.1.10`
-1.1.8 and 1.1.9 introduced breaking change, republish a new 1.1.x to fix.
-
-**2017-01-13** `1.1.9`
-Add http2 mode.
-
-**2017-01-13** `1.1.8`
-Make the options in configFile, cli and default use consistent names. Thanks @pmast for the initial PR.
-
-**2016-05-30** `1.1.7`
-Add no-reload option, thanks @Scarysize for the PR.
-
-**2016-03-10** `1.1.6`
-Fix proxyUrl bug, thanks @aemkei for the PR.
-
-**2016-01-25** `1.1.5`
-Add config file support.
-
-**2016-01-24** `1.1.4`
-Improve css reload, thanks @eliot-akira for the PR.
-
-**2016-01-22** `1.1.3`
-Add quiet mode, thanks @eliot-akira for the PR.
-
-**2015-12-01** `1.1.2`
-Improve help message.
-
-**2015-12-01** `1.1.1`
-Set changeOrigin to true by default when creating proxy. Thanks @joelcollinsdc for reporting this issue.
-
-**2015-10-15** `1.1.0`
-Now we can use proxy without static serving. Also improve the html injecting logic
-
-**2015-10-12** `1.0.7`
-Upgrade npm dependencies
-
-**2015-07-31** `1.0.6`
-Add bind option, by @davidmarkclements
-
-**2015-05-30** `1.0.3`
-Fix typo
-
-**2015-04-16** `1.0.1`
-Print command execution duration
-
-**2015-04-15** `1.0.0`
-New feature: watch and reload css without refreshing page
-Breaking change: change CLI interface to support reloadcss
-
-**2015-04-12** `0.1.4`
-New feature: proxy
-
-**2015-03-02** `0.1.3`
-Add delay option
-
-**2015-02-28** `0.1.1`
-First version.
+... see original light-server
