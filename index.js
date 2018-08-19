@@ -4,6 +4,9 @@
  * Serve, watch, exucute commands and live-reload, all in one.
  *
  * Copyright (c) 2018 by Tianxiang Chen
+ *
+ * modified by Nabil Redmann <repo@bananaacid.de>
+ *  - added support for pug files
  */
 'use strict'
 
