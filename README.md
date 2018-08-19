@@ -4,13 +4,17 @@ A lightweight cli static http server and it can watch files, execute commands an
 
 Added pug support from [pug-static](https://github.com/ryan-schroeder/pug-static/)
 
-## Quick use (with Node.js installed)
+## Quick use
 ```bash
 npx light-server-pug -s . -p 8000
 ```
--s is `--serve <folder>`, -p is `--port <port>` for the local port
+-s is `--serve <folder>` (the dot `.` referes to the current folder), -p is `--port <port>` for the local port
+
+Needs Node.js installed, but no installation of light-server-pug required.
 
 ## Why light-server
+
+from Tianxiang Chen, original [light-server](https://github.com/txchen/light-server)
 
 When I was writing some simple static web apps, it was helpful to have some tools to serve static http, to watch files and run command, and to trigger refresh in browser.
 
@@ -39,7 +43,7 @@ And now my package.json is simpler and cleaner than before :)
 
 ## Install
 
-light-server has much smaller footprint, compared to browser-sync, so it is recommended to install in project level, and use it with npm script.
+light-server-pug has much smaller footprint, compared to browser-sync, so it is recommended to install in project level, and use it with npm script.
 
 ```bash
 npm install light-server-pug
@@ -48,6 +52,11 @@ npm install light-server-pug
 Of course, you can install it globally, too.
 
 ## Usage
+
+```bash
+light-server-pug -s . -p 8000
+```
+
 
 ```text
 Usage: light-server-pug [options]
@@ -74,17 +83,17 @@ Options:
 
 Examples:
 
-  $ light-server -s . -p 7000
-  $ light-server -s dist --http2 -o
-  $ light-server -s dist --historyindex '/index.html'
-  $ light-server -s . -w "*.js, src/** # npm run build && echo wow!"
-  $ light-server -s . -x http://localhost:8000
-  $ light-server -s . -x http://localhost:8000 --servePrefix /assets
-  $ light-server -s . -b 10.0.0.1
-  $ light-server -x http://localhost:9999 --proxypath "/api" -w "public/**"
-  $ light-server -s static -w "**/*.css # # reloadcss"
-  $ light-server -c .lightserverrc
-  & light-server -s . -p 8000 -w "src/**/*.js # npm run js # no-reload"
+  $ light-server-pug -s . -p 7000
+  $ light-server-pug -s dist --http2 -o
+  $ light-server-pug -s dist --historyindex '/index.html'
+  $ light-server-pug -s . -w "*.js, src/** # npm run build && echo wow!"
+  $ light-server-pug -s . -x http://localhost:8000
+  $ light-server-pug -s . -x http://localhost:8000 --servePrefix /assets
+  $ light-server-pug -s . -b 10.0.0.1
+  $ light-server-pug -x http://localhost:9999 --proxypath "/api" -w "public/**"
+  $ light-server-pug -s static -w "**/*.css # # reloadcss"
+  $ light-server-pug -c .lightserverrc
+  & light-server-pug -s . -p 8000 -w "src/**/*.js # npm run js # no-reload"
 
 Watch expression syntax: "files[,files] # [command to run] # [reload action]"
   3 parts delimited by #
@@ -98,9 +107,9 @@ Watch expression syntax: "files[,files] # [command to run] # [reload action]"
     "**/*.js # npm run build # no-reload"
 ```
 
-It is quite simple, specify the folder to serve as static http, specify the files to watch, specify the command to run when watched files change, and light-server will do the job.
+It is quite simple, specify the folder to serve as static http, specify the files to watch, specify the command to run when watched files change, and light-server-pug will do the job.
 
-**You don't need to add reload script into your html, light-server will inject it automatically.**
+**You don't need to add reload script into your html, light-server-pug will inject it automatically.**
 
 You don't need to use all the features, and that's totally ok:
 
@@ -110,26 +119,26 @@ You don't need to use all the features, and that's totally ok:
 
 ## Manual trigger live-reload
 
-GET or POST `http://localhost:PORT/__lightserver__/trigger`, light-server will send reload event to the browser.
+GET or POST `http://localhost:PORT/__lightserver__/trigger`, light-server-pug will send reload event to the browser.
 
-GET or POST `http://localhost:PORT/__lightserver__/triggercss`, light-server will send reloadcss event to the browser.
+GET or POST `http://localhost:PORT/__lightserver__/triggercss`, light-server-pug will send reloadcss event to the browser.
 
-It means that it's possible to integrate other tools with light-server.
+It means that it's possible to integrate other tools with light-server-pug.
 
 ## Proxy
 
 Proxy feature is useful when our project is some backend language(like go, python) + static web page.
 
-For example, a golang web app exposes REST api via <http://host/api/> and server static page from <http://host/>. Then, when we are writing/debugging the static pages, light-server can be helpful. We can firstly launch the whole app and listen at `http://localhost:9000`, then in another terminal window, launch light-server:
+For example, a golang web app exposes REST api via <http://host/api/> and server static page from <http://host/>. Then, when we are writing/debugging the static pages, light-server-pug can be helpful. We can firstly launch the whole app and listen at `http://localhost:9000`, then in another terminal window, launch light-server:
 
 ```bash
 $ cd <your static pages dir>
 $ light-server-pug -s . -p 8000 -x http://localhost:9000
 ```
 
-Now when you access the static pages/js/css, light-server will return it directly. And if you access something like `http://localhost:8000/v1/myapi`, light-server cannot find the resource, and will proxy the request to upstream - `http://localhost:9000/v1/myapi`, which is the golang app.
+Now when you access the static pages/js/css, light-server-pug will return it directly. And if you access something like `http://localhost:8000/v1/myapi`, light-server-pug cannot find the resource, and will proxy the request to upstream - `http://localhost:9000/v1/myapi`, which is the golang app.
 
-This is cool because now you can have live-reload, without changing the golang app to add some dirty hacky changes, and you don't need to change the html to inject any extra js just for development. Light-server deals with all the dirty work.
+This is cool because now you can have live-reload, without changing the golang app to add some dirty hacky changes, and you don't need to change the html to inject any extra js just for development. Light-server-pug deals with all the dirty work.
 
 ## Example
 
@@ -147,7 +156,7 @@ Let's take a look at a real example. [Riot-Hackernews](https://github.com/txchen
     "build": "npm run build:js && npm run build:css",
     "build:js": "browserify -t [riotify --ext html] -d src/index.js -p [minifyify --compressPath . --map index.js.map --output build/index.js.map] -o build/index.js",
     "build:css": "cp src/main.css build/main.css",
-    "dev": "light-server -s . -p 9090 -w \"src/**/*.js, src/**/*.html # npm run build:js\" -w \"src/main.css # npm run build:css # reloadcss\""
+    "dev": "light-server-pug -s . -p 9090 -w \"src/**/*.js, src/**/*.html # npm run build:js\" -w \"src/main.css # npm run build:css # reloadcss\""
   },
   "dependencies": {
     "riot": "^2.0.11"
@@ -159,7 +168,7 @@ The project uses browserify and plugins to bundle the source code into a single 
 
 The build process is defined in script `build`, which is quite straightforward.
 
-During development, we can use `npm run dev`, which will use light-server to serve the static content, and watch the changes of any js/html files under `src` directory. When it detects file change, it would trigger build and if build pass, browser will auto reload. And light-server will watch the source css file, when it changes, trigger reloadcss, which is faster than page refresh.
+During development, we can use `npm run dev`, which will use light-server-pug to serve the static content, and watch the changes of any js/html files under `src` directory. When it detects file change, it would trigger build and if build pass, browser will auto reload. And light-server-pug will watch the source css file, when it changes, trigger reloadcss, which is faster than page refresh.
 
 Please notice that windows cannot handle single quotes well, so make sure you are using double quotes when you write complex watch expressions. Or, use the config file described below.
 
@@ -167,7 +176,7 @@ Of course, you can also achieve that by using grunt or gulp, with more dependenc
 
 ## Config file
 
-Light-server also supports reading options from a config file. This might be useful if the command line is too long in your package.json.
+Light-server-pug also supports reading options from a config file. This might be useful if the command line is too long in your package.json.
 
 To use a config file, create a json file and use `-c/--config`. The config template is like this:
 
@@ -201,4 +210,4 @@ The values in the command line have higher priority than the ones in the config 
 
 ## Changelog
 
-... see original light-server
+... see original [light-server](https://github.com/txchen/light-server)
