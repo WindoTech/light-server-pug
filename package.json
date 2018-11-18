@@ -1,7 +1,7 @@
 {
-  "name": "light-server-pug",
-  "version": "2.5.4",
-  "description": "An HTTP server that can watch files, trigger commands, do live-reload, and supports PUG/JADE files",
+  "name": "light-server",
+  "version": "2.6.0",
+  "description": "an http server that can watch files, trigger commands and livereload",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "light-server-pug": "bin/light-server-pug"
   },
   "dependencies": {
-    "commander": "^2.15.1",
+    "commander": "^2.19.0",
     "connect": "^3.6.6",
     "connect-history-api-fallback": "^1.5.0",
     "connect-injector": "^0.4.4",
@@ -32,11 +32,12 @@
     "gaze": "^1.1.2",
     "http-proxy": "^1.17.0",
     "localtunnel": "^1.9.0",
-    "morgan": "~1.9.0",
-    "opener": "^1.4.3",
+    "morgan": "~1.9.1",
+    "opener": "^1.5.1",
     "parseurl": "^1.3.2",
     "pug-static": "^1.0.1",
-    "serve-static": "^1.13.2",
+    "serve-index": "^1.9.1",
+    "serve-static": "~1.13.1",
     "spdy": "^3.4.7",
     "strip-json-comments": "^2.0.1",
     "ws": "^1.0.1"
@@ -51,6 +52,6 @@
   },
   "homepage": "https://github.com/BananaAcid/light-server-pug",
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^5.7.0"
   }
 }
