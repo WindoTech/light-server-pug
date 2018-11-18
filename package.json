@@ -1,5 +1,5 @@
 {
-  "name": "light-server",
+  "name": "light-server-pug",
   "version": "2.6.0",
   "description": "an http server that can watch files, trigger commands and livereload",
   "main": "index.js",
