@@ -5,6 +5,9 @@ html {
   font-family: Verdana, sans-serif;
   color: #111;
 }
+body {
+  padding: 3em;
+}
 h1 {
   font-size: 30px;
 }
@@ -15,4 +18,3 @@ h1 {
 .cat-picture {
   width: 50%;
 }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zdHlsZXMvYmFzZS5zdHlsIiwiLi4vLi4vc3JjL3N0eWxlcy9wYXJ0aWFscy9jYXQtcGljdHVyZS5zdHlsIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUs7RUFFSCxRQUFRLEVBQVI7RUFDQSxTQUFTLEtBQVQ7RUFDQSxhQUFvQixvQkFBcEI7RUFDQSxPQUFPLEtBQVA7O0FBRUY7RUFDRSxXQUFXLEtBQVg7O0FBRUY7RUFDRSxRQUFRLE9BQVI7RUFDQSxTQUFTLE1BQVQ7O0FDWkY7RUFDRSxPQUFPLElBQVAiLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5LFxyXG5odG1sXHJcbiAgbWFyZ2luOiAwXHJcbiAgcGFkZGluZzogMTBweFxyXG4gIGZvbnQtZmFtaWx5OiBWZXJkYW5hLCBzYW5zLXNlcmlmXHJcbiAgY29sb3I6ICRmb250LWNvbG9yXHJcblxyXG5oMVxyXG4gIGZvbnQtc2l6ZTogMzBweFxyXG5cclxuLmFsZXJ0LWJ1dHRvblxyXG4gIG1hcmdpbjogMTVweCAwXHJcbiAgZGlzcGxheTogYmxvY2tcclxuIiwiLmNhdC1waWN0dXJlXHJcbiAgd2lkdGg6IDUwJVxyXG4iXX0= */

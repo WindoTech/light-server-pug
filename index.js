@@ -14,7 +14,7 @@ var morgan = require('morgan')
 //var connect = require('connect')
 var connect = require('express')
 var serveStatic = require('serve-static')
-var serveStaticPug = require('pug-static')
+var serveStaticPug = require('./lib/pug-static.js')
 var serveIndex = require('serve-index')
 var injector = require('connect-injector')
 var Gaze = require('gaze').Gaze
@@ -86,27 +86,26 @@ LightServer.prototype.start = function () {
   }
 
   if (_this.options.serve) {
-	app.use(_this.options.servePrefix || '', serveStaticPug(_this.options.serve))
+    if (_this.options.proxy) {
+      var proxy = require('./proxy')
+      app.use(proxy(_this.options.proxy, _this.options.proxypaths).middleFunc)
+    }
+
+    if (_this.options.historyindex) {
+      var history = require('connect-history-api-fallback')
+      app.use(history({ index: _this.options.historyindex }))
+    }
+
+    app.use(_this.options.servePrefix || '', serveStaticPug(_this.options.serve))
+
     app.use(
       _this.options.servePrefix || '',
-      serveStatic(_this.options.serve, { extensions: ['html'], redirect: false })
+      serveStatic(_this.options.serve, { extensions: ['html'], redirect: false, fallthrough: true })
     )
     app.use(
       _this.options.servePrefix || '',
       serveIndex(_this.options.serve, { icons: true })
     )
-  }
-
-  if (_this.options.proxy) {
-    var proxy = require('./proxy')
-    app.use(proxy(_this.options.proxy, _this.options.proxypaths).middleFunc)
-  }
-
-  if (_this.options.historyindex) {
-    var history = require('connect-history-api-fallback')
-    app.use(history({ index: _this.options.historyindex }))
-    app.use(serveStaticPug(_this.options.serve))
-    app.use(serveStatic(_this.options.serve))
   }
 
   var server
